@@ -29,9 +29,6 @@ jobs:
   deploy:
     name: 构建并部署网站
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     # 检出代码
@@ -45,10 +42,6 @@ jobs:
         ls -la
         echo "✅ 静态文件准备完成"
     
-    # 设置 GitHub Pages
-    - name: 设置 GitHub Pages
-      uses: actions/configure-pages@v4
-    
     # 上传构建产物
     - name: 上传构建产物
       uses: actions/upload-pages-artifact@v3
@@ -59,6 +52,8 @@ jobs:
     - name: 部署到 GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+      with:
+        token: ${{ github.token }}
       
     # 部署成功通知
     - name: 部署成功通知
