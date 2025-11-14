@@ -52,7 +52,7 @@ body {
 
 /* 容器样式 - 模拟日记本页面 */
 .container {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -65,7 +65,7 @@ body {
   box-shadow: 
     0 0 20px var(--shadow-color),
     inset 0 0 0 1px var(--border-color);
-  margin: 20px 0;
+  margin: 20px 40px;
   position: relative;
   overflow: hidden;
 }
@@ -395,8 +395,50 @@ footer {
   position: relative;
 }
 
-/* 响应式设计 - 平板设备 */
-@media (max-width: 1024px) {
+/* 响应式设计 - 大屏幕设备 (1200px以上) */
+@media (min-width: 1200px) {
+  .container {
+    padding: 30px 50px;
+  }
+  
+  .page-wrapper {
+    margin: 30px 60px;
+  }
+  
+  header,
+  main,
+  footer {
+    padding: 60px 80px;
+  }
+  
+  .site-title {
+    font-size: 3rem;
+  }
+  
+  .article-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* 响应式设计 - 中等屏幕设备 (1024px-1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .container {
+    padding: 25px 40px;
+  }
+  
+  .page-wrapper {
+    margin: 25px 50px;
+  }
+  
+  header,
+  main,
+  footer {
+    padding: 50px 70px;
+  }
+}
+
+/* 响应式设计 - 平板设备 (768px-1023px) */
+@media (max-width: 1023px) {
   .container {
     padding: 15px;
   }
